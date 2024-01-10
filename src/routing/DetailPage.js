@@ -1,8 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { Link } from 'react-router-dom';
-import HomePage from './HomePage';
 
-const DetailPage = () => {
+const DetailPage = ({product, category, description}) => {
     const {name} = useParams();
 
     return (
@@ -13,7 +12,27 @@ const DetailPage = () => {
 
             <br />
 
-            <p>Ceci est la page de détail de la catégorie {name}</p>
+            <h1>Catégorie {name}</h1>
+
+            <div className="card">
+  <div className="card-content">
+    <div className="media">
+      <div className="media-left">
+        <figure className="image is-48x48">
+          <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image" />
+        </figure>
+      </div>
+      <div className="media-content">
+        <p className="title is-4">{product}</p>
+        <p className="subtitle is-6">{category}</p>
+      </div>
+    </div>
+
+    <div className="content">{description}
+      <br />
+    </div>
+  </div>
+</div>
         </>
     );
 };
